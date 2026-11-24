@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ApexSummit — next-level elevated live step-grid desk with MIDI record & stems</title>
+<title>ApexSummit — elevated multi-chair live step-grid</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -10,7 +10,7 @@
 <div id="tap-overlay">Tap to start audio<br><small>iOS: silent switch mutes Web Audio</small></div>
 <header>
   <h1>ApexSummit</h1>
-  <div id="status">Loading samples…</div>
+  <div id="status">Tap to start · loading samples…</div>
 </header>
 <section class="controls">
   <label>BPM <input id="bpm" type="number" min="60" max="180" value="92"></label>
@@ -26,32 +26,18 @@
     <option value="E major">E major</option>
   </select></label>
   <label>Chords <input id="chords" value="Am F C G" placeholder="Am F C G"></label>
-  <label>Bars <select id="bars">
-    <option value="2">2</option>
-    <option value="4">4</option>
-    <option value="8" selected>8</option>
-    <option value="16">16</option>
-  </select></label>
+  <label>Bars <select id="bars"><option value="4">4</option><option value="8" selected>8</option></select></label>
   <label>Swing <input id="swing" type="range" min="0" max="60" value="0"> <span id="swing-val">0%</span></label>
   <label>Humanize <input id="humanize" type="range" min="0" max="40" value="0"> <span id="humanize-val">0%</span></label>
-  <label>Delay <input id="delay" type="range" min="0" max="50" value="0"> <span id="delay-val">0%</span></label>
-  <label>Master Filter <input id="filter" type="range" min="200" max="16000" value="12000"> <span id="filter-val">12000 Hz</span></label>
   <div id="recipes"></div>
   <button id="play">Play</button>
   <button id="stop">Stop</button>
-  <button id="record">Record MIDI</button>
-  <label>Target chair for MIDI <select id="target-chair">
-    <option value="piano">piano</option>
-    <option value="bass">bass</option>
-    <option value="guitar">guitar</option>
-    <option value="violin">violin</option>
-    <option value="trumpet">trumpet</option>
-  </select></label>
   <button id="export-wav">Export WAV (folded)</button>
   <button id="export-tail">Export WAV (with tail)</button>
   <button id="export-midi">Export MIDI</button>
-  <button id="stems">Export Stems</button>
-  <div id="onscreen-keys" style="margin-top:8px; display:flex; gap:4px; flex-wrap:wrap;"></div>
+  <button id="export-stems">Export stems</button>
+  <label>MIDI in <button id="midi-btn">Enable MIDI</button> <span id="midi-status">off</span></label>
+  <label>Record chair <select id="rec-chair"><option value="">none</option></select></label>
 </section>
 <div id="playhead-wrap"><div id="playhead"></div></div>
 <section id="grids"></section>

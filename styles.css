@@ -1,96 +1,24 @@
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #0a0a12;
-  color: #e0e0ff;
-  margin: 0;
-  padding: 12px;
-  line-height: 1.4;
-}
-#tap-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  z-index: 100;
-  cursor: pointer;
-}
-#tap-overlay.hidden { display: none; }
-header { text-align: center; margin-bottom: 16px; }
-h1 { margin: 0; color: #7af; }
-#status { font-size: 0.9rem; color: #8af; }
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  background: #151520;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-.controls label { display: flex; align-items: center; gap: 4px; font-size: 0.9rem; }
-input, select, button {
-  background: #222;
-  color: #fff;
-  border: 1px solid #444;
-  border-radius: 4px;
-  padding: 4px 8px;
-}
-button { cursor: pointer; }
-button:hover { background: #333; }
-#recipes button { margin-right: 4px; }
-#playhead-wrap {
-  height: 6px;
-  background: #222;
-  border-radius: 3px;
-  margin: 8px 0;
-  position: relative;
-  overflow: hidden;
-}
-#playhead {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 2px;
-  background: #0f8;
-  left: 0;
-}
-#grids { display: flex; flex-direction: column; gap: 8px; }
-.chair {
-  background: #12121a;
-  padding: 8px;
-  border-radius: 6px;
-}
-.chair h3 { margin: 0 0 6px; font-size: 1rem; display: flex; gap: 12px; align-items: center; }
-.steps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-}
-.step {
-  width: 18px;
-  height: 18px;
-  background: #2a2a3a;
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
-}
-.step.on { background: #4a6; }
-.step.vel-low { background: #3a5; }
-.step.vel-med { background: #5c8; }
-.step.vel-high { background: #7ea; }
-.step.current { box-shadow: 0 0 0 2px #0f8; }
-#punch {
-  margin-top: 16px;
-  padding: 8px;
-  background: #111;
-  border-radius: 4px;
-  font-family: monospace;
-  white-space: pre-wrap;
-  font-size: 0.85rem;
-}
-.chair input[type=range] { width: 70px; }
-button.active { background: #c44; color: #fff; }
+:root { --bg:#0d0d12; --fg:#e8e8f0; --acc:#6ee7b7; --grid:#1a1a24; }
+body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.4 system-ui,sans-serif; padding:12px; }
+#tap-overlay { position:fixed; inset:0; background:rgba(0,0,0,.85); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:10; font-size:1.4rem; }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+h1 { margin:0; font-size:1.4rem; color:var(--acc); }
+#status { font-size:.85rem; opacity:.8; }
+.controls { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; margin-bottom:12px; }
+.controls label { display:flex; align-items:center; gap:6px; }
+input[type=number], select, input[type=text] { background:#1e1e28; color:var(--fg); border:1px solid #333; padding:4px 6px; border-radius:4px; }
+button { background:#222; color:var(--fg); border:1px solid #444; padding:6px 10px; border-radius:4px; cursor:pointer; }
+button:hover { border-color:var(--acc); }
+#playhead-wrap { height:6px; background:#222; margin:8px 0; position:relative; }
+#playhead { position:absolute; top:0; height:100%; width:2px; background:var(--acc); }
+#grids { display:flex; flex-direction:column; gap:10px; }
+.chair { background:var(--grid); padding:8px; border-radius:6px; }
+.chair h3 { margin:0 0 6px; font-size:.95rem; display:flex; gap:12px; align-items:center; }
+.steps { display:grid; grid-template-columns:repeat(16,1fr); gap:2px; }
+.step { height:22px; background:#2a2a38; border-radius:2px; cursor:pointer; }
+.step.on { background:var(--acc); }
+.step.current { outline:2px solid #fff; }
+.step.vel-low { background:#4ade80; }
+.step.vel-med { background:#22c55e; }
+.step.vel-high { background:#16a34a; }
+#punch { margin-top:16px; white-space:pre-wrap; font-family:ui-monospace,monospace; font-size:.8rem; background:#111; padding:10px; border-radius:6px; }
